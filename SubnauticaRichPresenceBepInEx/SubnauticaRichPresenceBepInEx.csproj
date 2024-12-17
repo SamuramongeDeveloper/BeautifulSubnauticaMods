@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	  <GenerateDocumentationFile>False</GenerateDocumentationFile>
+	  <Configurations>Debug;Release;Test</Configurations>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Subnautica.Nautilus" Version="1.0.0-pre.15" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="DiscordRPC\" />
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="mkdir &quot;D:\SteamLibrary\steamapps\common\Subnautica\BepInEx\plugins\$(AssemblyName)&quot;&#xD;&#xA;copy &quot;$(OutDir)\$(AssemblyName).dll&quot; &quot;D:\SteamLibrary\steamapps\common\Subnautica\BepInEx\plugins\$(AssemblyName)&quot; /y&#xD;&#xA;xcopy &quot;$(ProjectDir)\Plugins&quot; &quot;D:\SteamLibrary\steamapps\common\Subnautica\BepInEx\plugins\$(AssemblyName)&quot; /y /e" />
+	</Target>
+</Project>
