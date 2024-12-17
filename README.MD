@@ -9,5 +9,6 @@ You can use this repo to get inspiration and learn about codding a mod in Subnau
 <!---- Beautiful folder photo ---->
 ## 🖼️ Picture
 Picture of the beautiful folder. Figured it would be important.
+
 ![screenshot](https://github.com/SamuramongeDeveloper/BeautifulSubnauticaMods/blob/main/Images/image.png?raw=true)
 <!---- Beautiful folder photo end ---->
