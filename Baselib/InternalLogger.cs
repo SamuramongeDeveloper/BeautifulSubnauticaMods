@@ -15,16 +15,16 @@ internal static class InternalLogger
         Log(LogLevel.Info, msg);
     }
 
+    public static void Warn(object message)
+    {
+        string msg = Stringify(message);
+        Log(LogLevel.Warning, msg);
+    }
+
     public static void Error(object message)
     {
         string msg = Stringify(message);
         Log(LogLevel.Error, msg);
-    }
-
-    public static void Throw(object message)
-    {
-        string msg = Stringify(message);
-        throw new UnexpectedException(msg);
     }
 
     private static string Stringify(object value)
@@ -35,16 +35,4 @@ internal static class InternalLogger
     }
 
     private static void Log(LogLevel level, string message) => _source.Log(level, message);
-}
-
-/// <summary>
-/// When things get strange and somehow you need to throw an exception even if its never possible.
-/// </summary>
-public class UnexpectedException : Exception
-{
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
-    /// <param name="message"><inheritdoc/></param>
-    public UnexpectedException(string message) : base(message) { }
 }
